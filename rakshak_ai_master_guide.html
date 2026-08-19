@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rakshak AI — Complete Master Guide & Technical Handbook (SIH 2026)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070B12;
+      --surface: #0B111A;
+      --card: #101923;
+      --card-hover: #151F2B;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #10B981;
+      --info: #06B6D4;
+      --primary: #3B82F6;
+      --warning: #F59E0B;
+      --danger: #EF4444;
+      --text: #E2E8F0;
+      --muted: #94A3B8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.65;
+      padding: 30px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+    
+    /* Header & Branding */
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #60A5FA;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    h1 span { color: var(--primary); }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      color: #fff;
+      margin: 32px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      color: var(--info);
+      margin: 20px 0 8px;
+    }
+    p { margin-bottom: 14px; font-size: 14px; color: #CBD5E1; }
+    
+    /* Child-friendly Callout Box */
+    .simple-box {
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-left: 4px solid var(--info);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0 24px;
+    }
+    .simple-box strong { color: var(--info); font-family: 'JetBrains Mono', monospace; }
+    
+    /* Military Tech Card */
+    .tech-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .tech-card:hover { border-color: rgba(59, 130, 246, 0.4); }
+    
+    /* Code & Formulas */
+    code, pre {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+    pre {
+      background: #04070D;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+      margin: 12px 0 18px;
+      color: #7DD3FC;
+    }
+    
+    /* Grid & Tables */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+    th { background: #101923; color: #94A3B8; font-weight: 700; }
+    td { background: #0B111A; }
+    
+    /* Print Utility */
+    @media print {
+      body { background: #fff; color: #000; padding: 15px; }
+      .header, h1, h2, h3, p, td, th { color: #000 !important; }
+      pre, .tech-card, td, th { background: #f8fafc !important; border-color: #cbd5e1 !important; color: #000 !important; }
+      .no-print { display: none; }
+    }
+    .btn-print {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-print:hover { background: #2563EB; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="badge">SMART INDIA HACKATHON 2026 • SIH-1642</div>
+      <h1>RAKSHAK <span>AI</span> — Technical Master Guide</h1>
+      <p style="color: #94A3B8; font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-top: 4px;">
+        Team InnoVortex • Complete Architecture, Mathematical Algorithms, Telemetry Explanations & Counter-Question Cheat Sheet
+      </p>
+    </div>
+    <div class="no-print">
+      <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <!-- CHAPTER 1: Core Concept Explained Like to a 10-Year-Old -->
+  <h2>1. What is Rakshak AI? (Explain to a Child Analogy)</h2>
+  
+  <div class="simple-box">
+    <strong>🧒 THE DETECTIVE PUZZLE ANALOGY:</strong><br>
+    Imagine you are guarding a high snowy mountain ridge. You have 3 friends who help you:
+    <ol style="margin-left: 20px; margin-top: 8px;">
+      <li><strong>Friend 1 (Seismic Sensor):</strong> Puts his ear on the ground and says: <em>"Hey, I feel vibrations!"</em> (Could be an animal, a falling rock, or a vehicle).</li>
+      <li><strong>Friend 2 (Thermal Camera):</strong> Looks through binoculars and says: <em>"Hey, I see a warm spot moving in the dark!"</em> (Could be fog reflection or a person).</li>
+      <li><strong>Friend 3 (Drone Operator):</strong> Flies a toy plane in the sky and says: <em>"Hey, I see a small flying toy or vehicle in the same area!"</em></li>
+    </ol>
+    <br>
+    If only 1 friend shouts, it might be a false alarm (a yak or mountain bird). But when <strong>all 3 friends shout within 4 minutes at the EXACT SAME mountain ridge</strong>, that is NOT a coincidence!
+    <br><br>
+    <strong>Rakshak AI is the Super-Smart Detective Brain</strong> that listens to all 3 friends at once, connects the dots, calculates an explainable Risk Score (e.g. 82/100), and tells the Human Commander: <em>"Here are the clues. Unit T03 is closest (8 minutes away). Do you want to check it out?"</em>
+  </div>
+
+  <div class="tech-card">
+    <h3 style="color: #F87171;">⚠️ WHAT RAKSHAK AI IS NOT vs. WHAT IT IS</h3>
+    <table>
+      <tr>
+        <th style="width: 50%;">❌ What Rakshak AI IS NOT</th>
+        <th style="width: 50%;">✅ What Rakshak AI IS</th>
+      </tr>
+      <tr>
+        <td>NOT an anti-drone weapon or missile launcher.</td>
+        <td>An <strong>Operational Intelligence & Event Correlation Layer</strong>.</td>
+      </tr>
+      <tr>
+        <td>NOT an autonomous shooting or interception system.</td>
+        <td>A <strong>Human-in-the-Loop Decision-Support System</strong> (AI Recommends, Human Decides).</td>
+      </tr>
+      <tr>
+        <td>NOT a replacement for ITBP/Army command systems.</td>
+        <td>An <strong>Information Fusion Adapter</strong> that unifies fragmented sensors onto one screen.</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- CHAPTER 2: System Architecture & End-to-End Pipeline -->
+  <h2>2. Complete Architecture & Tech Stack (How Everything Connects)</h2>
+
+  <div class="grid-2">
+    <div class="tech-card">
+      <h3>🖥️ FRONTEND ARCHITECTURE</h3>
+      <ul style="font-size: 13px; color: #CBD5E1; margin-left: 18px;">
+        <li><strong>Next.js 14 (App Router)</strong>: High-speed React framework with server-side rendering.</li>
+        <li><strong>TypeScript</strong>: Strict type safety ensuring zero runtime type errors.</li>
+        <li><strong>Tailwind CSS</strong>: Command & Control dark tactical theme (Layers #070B12, #0B111A, #101923).</li>
+        <li><strong>Leaflet + CartoDB Dark Matter</strong>: High-resolution GIS map with Himalayan sector geofences.</li>
+        <li><strong>Recharts</strong>: Real-time telemetry graphs for vehicle engine temp & vibration.</li>
+        <li><strong>Zustand</strong>: Ultra-lightweight global client state management.</li>
+      </ul>
+    </div>
+
+    <div class="tech-card">
+      <h3>⚙️ BACKEND & AI ENGINE</h3>
+      <ul style="font-size: 13px; color: #CBD5E1; margin-left: 18px;">
+        <li><strong>FastAPI (Python 3.11+)</strong>: Asynchronous REST API server with sub-millisecond route handling.</li>
+        <li><strong>SQLAlchemy 2.0 (Async)</strong>: High-performance ORM with SQLite (local) / PostgreSQL (cloud).</li>
+        <li><strong>Groq Cloud LPU</strong>: Hardware-accelerated LLaMA-3 (70B) inference delivering sub-0.4s operational sitreps.</li>
+        <li><strong>Native WebSocket Telemetry Bus</strong>: Real-time event push to all active command screens.</li>
+        <li><strong>Native bcrypt + JWT</strong>: Military-grade role-based authentication (`commander`, `officer`, `observer`).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CHAPTER 3: Step-by-Step Data Flow Pipeline -->
+  <h2>3. The 7-Stage End-to-End Pipeline (How Data Flows)</h2>
+  
+  <pre>
+[ SENSORS & DRONES ] ────► 1. Raw Telemetry Ingestion (FastAPI / WebSocket)
+                                  │
+                                  ▼
+                       2. Spatio-Temporal Correlation Core
+                          (Checks: ΔT ≤ 600s + Sector Proximity ≤ 120m)
+                                  │
+                                  ▼
+                       3. Multi-Source Fusion (Promotes to Incident #1042)
+                                  │
+                                  ▼
+                       4. Explainable Risk Scoring Engine (0-100 Score)
+                                  │
+                                  ▼
+                       5. Groq LPU LLaMA-3 Operational Sitrep Synthesis
+                                  │
+                                  ▼
+                       6. Terrain-Aware Patrol Routing (Recommends Unit T03)
+                                  │
+                                  ▼
+                       7. Human Officer Decision Panel (Approve / Dismiss)
+                                  │
+                                  ▼
+                       8. Immutable Cryptographic Audit Log
+  </pre>
+
+  <!-- CHAPTER 4: Algorithms Explained in Detail -->
+  <h2>4. Core Algorithms & Mathematical Formulations</h2>
+
+  <!-- Algo 1 -->
+  <div class="tech-card">
+    <h3>ALGORITHM 1: Spatio-Temporal Event Correlation Engine</h3>
+    <p>
+      <strong>Goal:</strong> Group disconnected sensor alerts into a single unified incident if they happen in the same place around the same time.
+    </p>
+    <p><strong>Mathematical Rule:</strong></p>
+    <pre>
+Given an event E_new = (Location L, Timestamp T, Source S):
+1. Candidate Pool: Find all recent events E_i where |T_new - T_i| ≤ 600 seconds (10 mins).
+2. Spatial Match: Haversine_Distance(L_new, L_i) ≤ 120 meters OR Sector(E_new) == Sector(E_i).
+3. Cross-Corroboration Check: Count unique sources {S_1, S_2, ... S_k}.
+   If k ≥ 2 (e.g. SENSOR + CAMERA), PROMOTE TO CORRELATED INCIDENT!
+    </pre>
+  </div>
+
+  <!-- Algo 2 -->
+  <div class="tech-card">
+    <h3>ALGORITHM 2: Explainable Risk Scoring Model (0–100 Points)</h3>
+    <p>
+      <strong>Goal:</strong> Calculate a transparent 0–100 risk score without any "black box". Every single point is explainable to judges!
+    </p>
+    <table>
+      <tr>
+        <th>Factor Name</th>
+        <th>Max Points</th>
+        <th>Condition / Technical Rule</th>
+      </tr>
+      <tr>
+        <td>Independent Source Corroboration</td>
+        <td>+25 pts</td>
+        <td>&ge;3 unique sources = +25 pts; 2 sources = +15 pts; 1 source = +5 pts.</td>
+      </tr>
+      <tr>
+        <td>Sector Boundary Sensitivity</td>
+        <td>+20 pts</td>
+        <td>Sensitive High-Altitude Ridge Pass (Sector B12/B14) = +20 pts; Standard buffer = +10 pts.</td>
+      </tr>
+      <tr>
+        <td>Temporal Persistence / Activity Clustering</td>
+        <td>+17 pts</td>
+        <td>&ge;3 alerts within 10 minutes = +17 pts; 2 alerts = +10 pts.</td>
+      </tr>
+      <tr>
+        <td>Off-Hours Night Surveillance Window</td>
+        <td>+10 pts</td>
+        <td>Detected between 20:00 – 05:00 hrs IST = +10 pts; Daytime = +4 pts.</td>
+      </tr>
+      <tr>
+        <td>Detection Optic Confidence</td>
+        <td>+10 pts</td>
+        <td>Average sensor/YOLO confidence &ge; 85% = +10 pts; &ge; 70% = +6 pts.</td>
+      </tr>
+      <tr>
+        <td>Adverse Weather / Blizzard Context</td>
+        <td>+8 pts</td>
+        <td>Sub-zero low visibility or blizzard distortion = +8 pts.</td>
+      </tr>
+      <tr style="font-weight: bold; background: #151F2B; color: #F87171;">
+        <td>TOTAL MAXIMUM RISK SCORE</td>
+        <td>100 pts</td>
+        <td>Incident #1042 evaluates to 25 + 20 + 17 + 10 + 10 = 82/100 (HIGH PRIORITY)</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Algo 3 -->
+  <div class="tech-card">
+    <h3>ALGORITHM 3: Terrain-Aware Patrol Routing (ETA Engine)</h3>
+    <p>
+      <strong>Goal:</strong> Recommend the nearest ready patrol unit accounting for steep Himalayan snow terrain.
+    </p>
+    <pre>
+1. Haversine Great-Circle Distance:
+   d = 2 * R * arcsin( sqrt( sin²(Δlat/2) + cos(lat1)*cos(lat2)*sin²(Δlon/2) ) )
+   where R = 6371 km (Earth's radius).
+
+2. Terrain Difficulty Multipliers (High-Altitude Context):
+   • Snowbound Mountain Ridge (Sector B12, B14) : 2.2x
+   • Steep Rocky Pass (Sector A04, D02)          : 1.8x
+   • Foothills / Valley Corridor (Sector C08)   : 1.4x
+   • Standard Patrol Trail                      : 1.0x
+
+3. Estimated Travel Time (ETA in Minutes):
+   ETA = ( Distance_km / Average_Speed_kmh ) * Terrain_Multiplier * 60
+   For Unit T03: (3.2 km / 35 km/h) * 2.2 * 60 ≈ 8.0 Minutes (RECOMMENDED!)
+    </pre>
+  </div>
+
+  <!-- CHAPTER 5: How Telemetry Readings Work -->
+  <h2>5. How Telemetry Readings Work & Where We Get Data</h2>
+  
+  <div class="tech-card">
+    <p>In our prototype, telemetry data simulates real-world ITBP sensory hardware:</p>
+    <table>
+      <tr>
+        <th>Sensor / Device</th>
+        <th>Physical Unit Measured</th>
+        <th>Normal Range</th>
+        <th>Anomaly Trigger Threshold</th>
+      </tr>
+      <tr>
+        <td><strong>Ground Seismic Sensor (Node SENS-01)</strong></td>
+        <td>Vibration Frequency (Hz) & Amplitude</td>
+        <td>0.5 – 4.0 Hz (Wind / Ambient)</td>
+        <td><strong>&gt; 18.0 Hz</strong> (Convoys / Group footfalls on ridge)</td>
+      </tr>
+      <tr>
+        <td><strong>Thermal Optical Camera (Mast CAM-01)</strong></td>
+        <td>Infrared Heat Signature & Bounding Boxes</td>
+        <td>Nominal Wildlife / Landscape</td>
+        <td><strong>Confidence &gt; 80%</strong> crossing perimeter buffer</td>
+      </tr>
+      <tr>
+        <td><strong>Recon Drone (Netra-1 UAV)</strong></td>
+        <td>Optical Target Class, Altitude & Speed</td>
+        <td>Authorized flight corridors</td>
+        <td><strong>Loitering UAV &gt; 40 km/h</strong> in restricted corridor</td>
+      </tr>
+      <tr>
+        <td><strong>Heavy Transport Tatra (Vehicle V12)</strong></td>
+        <td>Engine Temp (°C) & Chassis Vibration (mm/s)</td>
+        <td>Temp: 70–85°C • Vib: &lt; 2.5 mm/s</td>
+        <td><strong>Temp: 94.5°C • Vib: 4.8 mm/s</strong> (High Risk Overheat)</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- CHAPTER 6: All 11 Navigation Modules Explained -->
+  <h2>6. Tour of All 11 Modules (What Every Screen Does)</h2>
+  
+  <div class="grid-2">
+    <div class="tech-card">
+      <h3 style="color: #fff;">1. 📊 Overview (/dashboard)</h3>
+      <p>Displays the top 6 operational KPI cards, active incident alerts, and the signature multi-source correlation vector diagram.</p>
+    </div>
+    <div class="tech-card">
+      <h3 style="color: #fff;">2. 🗺️ Live Operations Map (/map)</h3>
+      <p>Dark CartoDB Leaflet map showing Himalayan sector geofences (`A04`–`D02`), pulsing threat zones, and a live Picture-in-Picture Thermal IR feed!</p>
+    </div>
+    <div class="tech-card">
+      <h3 style="color: #fff;">3. ⚠️ Active Incidents (/incidents)</h3>
+      <p>Incident #1042 timeline, circular 82/100 risk gauge, AI explanation, and Human Decision action buttons (`[Approve]`, `[Dismiss]`).</p>
+    </div>
+    <div class="tech-card">
+      <h3 style="color: #fff;">4. 🔗 Event Correlation (/correlation)</h3>
+      <p>Dedicated large-format visual graph showing how independent sensor feeds merge into a single actionable incident.</p>
+    </div>
+    <div class="tech-card">
+      <h3 style="color: #fff;">5. 🤖 Rakshak Intelligence (/ai)</h3>
+      <p>Conversational AI Assistant powered by Groq LLaMA-3 (70B) with real-time operational context injection.</p>
+    </div>
+    <div class="tech-card">
+      <h3 style="color: #fff;">6. 👥 Response Resources (/patrols)</h3>
+      <p>Status, distance, and terrain-factored ETAs for all patrol units with highlighted recommendation for Unit T03.</p>
+    </div>
+    <div class="tech-card">
+      <h3 style="color: #fff;">7. 🔧 Equipment Health (/equipment)</h3>
+      <p>Condition telemetry gauges and predictive temperature/vibration charts for fleet vehicles (Tatra V12) and drones.</p>
+    </div>
+    <div class="tech-card">
+      <h3 style="color: #fff;">8. 🗄️ Data Sources (/sources)</h3>
+      <p>Live health metrics across all 5 sensor categories + a Manual Drone Operator Observation Form for field human input.</p>
+    </div>
+    <div class="tech-card">
+      <h3 style="color: #fff;">9. 📑 Incident Reports (/reports)</h3>
+      <p>Formal ITBP After-Action Reports with live Groq AI generation and 1-click printable export.</p>
+    </div>
+    <div class="tech-card">
+      <h3 style="color: #fff;">10. 📜 System Audit Log (/audit)</h3>
+      <p>Cryptographically timestamped immutable provenance ledger recording all automated and human decisions.</p>
+    </div>
+    <div class="tech-card" style="grid-column: span 2;">
+      <h3 style="color: #fff;">11. 🎛️ Simulation Control (/simulation)</h3>
+      <p>Judge evaluation console with 5 individual anomaly trigger buttons + an automated 7-stage live demonstration flow!</p>
+    </div>
+  </div>
+
+  <!-- CHAPTER 7: Counter-Question & Answer Defense Cheat Sheet -->
+  <h2>7. SIH Judge Counter-Question Defense Cheat Sheet 🛡️</h2>
+
+  <div class="tech-card">
+    <h3 style="color: #FBBF24;">Q1: "Why doesn't Rakshak AI shoot down or intercept the drones automatically?"</h3>
+    <p>
+      <strong>Winning Answer:</strong> <em>"Respected Judges, Rakshak AI is deliberately designed as a non-kinetic operational intelligence layer, not a weapon. In high-altitude border security (ITBP context), shooting down every detected blip causes friendly fire, civilian casualties, and legal violations. Our principle is: 'Person detected does NOT equal threat detected'. Rakshak AI correlates multiple feeds, calculates explainable risk, and empowers the human commanding officer to make the final informed tactical decision."</em>
+    </p>
+  </div>
+
+  <div class="tech-card">
+    <h3 style="color: #FBBF24;">Q2: "How do you prevent false alarms from mountain wildlife (e.g. Snow Leopards, Yaks)?"</h3>
+    <p>
+      <strong>Winning Answer:</strong> <em>"Single-sensor systems suffer from massive false alarms. A yak walking on a ridge might trigger a ground seismic sensor. However, a yak will NOT simultaneously trigger a thermal optical vector with UAV characteristics, nor will it correlate with a low-altitude aerial drone observer. Rakshak AI requires multi-source spatio-temporal cross-corroboration (&ge;2 independent source types within a 10-minute window) before escalating to a high-priority incident."</em>
+    </p>
+  </div>
+
+  <div class="tech-card">
+    <h3 style="color: #FBBF24;">Q3: "What if there is no internet in remote high-altitude Himalayas (Ladakh/Sikkim)?"</h3>
+    <p>
+      <strong>Winning Answer:</strong> <em>"Rakshak AI has an Edge-First Architecture. The core correlation engine, risk mathematical model, and SQLite database run completely offline on local forward tactical servers (Tactical C2 nodes). When cloud connectivity is available, Groq LPU enhances the natural language sitreps; but if the link drops, our deterministic rule engine ensures 100% operational continuity with zero downtime."</em>
+    </p>
+  </div>
+
+  <div class="tech-card">
+    <h3 style="color: #FBBF24;">Q4: "Is your Risk Score a Black Box AI prediction?"</h3>
+    <p>
+      <strong>Winning Answer:</strong> <em>"No, sir. We explicitly avoid black-box probabilistic hallucinations. Our risk score is 100% deterministic and explainable: +25 pts for multi-source consensus, +20 pts for sensitive sector proximity, +17 pts for time clustering, +10 pts for night timing, and +10 pts for optic confidence. The officer can click any score and see the exact mathematical points breakdown."</em>
+    </p>
+  </div>
+
+  <div class="tech-card">
+    <h3 style="color: #FBBF24;">Q5: "How does the Patrol Routing Algorithm work?"</h3>
+    <p>
+      <strong>Winning Answer:</strong> <em>"Standard GPS navigation uses straight-line distance, which is lethal in the Himalayas where a 2 km ridge might take 4 hours to climb. Rakshak AI uses Haversine Great-Circle distance weighted by high-altitude terrain multipliers (2.2x for snowbound ridges, 1.8x for rocky passes). This gives the duty officer an accurate estimated travel time (ETA in minutes) so the optimal response unit is dispatched."</em>
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 24px; margin-top: 40px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #64748B;">
+    RAKSHAK AI • SMART INDIA HACKATHON 2026 PROTOTYPE • TEAM INNOVORTEX • PROPRIETARY DOCUMENTATION
+  </div>
+</div>
+
+</body>
+</html>
