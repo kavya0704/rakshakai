@@ -17,7 +17,8 @@ import {
   Sliders,
   LogOut,
   ShieldCheck,
-  Radio
+  Radio,
+  BookOpen
 } from "lucide-react";
 import { useAuthStore } from "@/stores/authStore";
 
@@ -33,6 +34,7 @@ const NAV_ITEMS = [
   { label: "Incident Reports", href: "/reports", icon: FileText },
   { label: "System Audit Log", href: "/audit", icon: History },
   { label: "Simulation Control", href: "/simulation", icon: Sliders },
+  { label: "Technical Handbook", href: "/guide", icon: BookOpen },
 ];
 
 export function Sidebar() {
@@ -60,60 +62,64 @@ export function Sidebar() {
       </div>
 
       {/* Navigation Links */}
-      <nav className="flex-1 p-2 space-y-0.5 overflow-y-auto">
-        <div className="text-[9px] font-mono text-slate-500 px-3 py-1 uppercase tracking-widest font-bold">
+      <nav className="flex-1 px-2.5 py-3 space-y-1 overflow-y-auto custom-scrollbar">
+        <div className="px-2.5 py-1 text-[10px] font-mono font-bold tracking-wider text-slate-500 uppercase">
           Navigation Modules
         </div>
 
         {NAV_ITEMS.map((item) => {
-          const isActive = pathname === item.href;
           const Icon = item.icon;
+          const isActive = pathname === item.href;
 
           return (
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+              className={`flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono transition-all group ${
                 isActive
-                  ? "bg-[#151F2B] text-white border border-blue-500/40 shadow-sm font-semibold"
-                  : "text-slate-400 hover:text-slate-200 hover:bg-[#101923] border border-transparent"
+                  ? "bg-blue-600/20 text-white border border-blue-500/40 font-bold shadow-lg shadow-blue-500/10"
+                  : "text-slate-400 hover:text-slate-200 hover:bg-[#101923]"
               }`}
             >
-              <Icon className={`w-4 h-4 ${isActive ? "text-blue-400" : "text-slate-500"}`} />
-              <span>{item.label}</span>
+              <Icon
+                className={`w-4 h-4 transition-colors ${
+                  isActive ? "text-blue-400" : "text-slate-500 group-hover:text-slate-300"
+                }`}
+              />
+              <span className="truncate">{item.label}</span>
             </Link>
           );
         })}
       </nav>
 
-      {/* Bottom Status & Profile */}
-      <div className="p-3 border-t border-white/10 space-y-2 bg-[#0B111A]">
-        <div className="p-2 rounded bg-[#101923] border border-white/5 space-y-1">
-          <div className="flex items-center justify-between text-[10px] font-mono">
-            <span className="text-slate-400">SYSTEM STATUS</span>
-            <span className="text-emerald-400 flex items-center gap-1 font-bold">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              All Systems Operational
-            </span>
+      {/* Bottom Footer User Badge */}
+      <div className="p-3 border-t border-white/10 bg-[#0B111A]/80 space-y-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-full bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-mono text-xs font-bold">
+              {user?.username ? user.username.charAt(0).toUpperCase() : "O"}
+            </div>
+            <div className="overflow-hidden">
+              <div className="text-xs font-mono font-bold text-white truncate max-w-[120px]">
+                {user?.full_name || user?.username || "Duty Operator"}
+              </div>
+              <div className="text-[10px] font-mono text-slate-400 uppercase">
+                {user?.role || "COMMAND"}
+              </div>
+            </div>
           </div>
-          <div className="flex items-center justify-between text-[11px] font-mono border-t border-white/5 pt-1">
-            <span className="text-slate-400 font-bold truncate max-w-[120px]">
-              {user?.full_name || "Brigadier V.S. Chauhan"}
-            </span>
-            <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 font-mono">
-              {user?.role || "Commander"}
-            </span>
-          </div>
-        </div>
 
-        <button
-          onClick={logout}
-          className="w-full flex items-center justify-center gap-2 py-1.5 px-3 rounded-lg text-xs font-mono text-red-400 hover:bg-red-500/10 border border-red-500/20 hover:border-red-500/40 transition-colors"
-        >
-          <LogOut className="w-3.5 h-3.5" />
-          <span>Exit Tactical Session</span>
-        </button>
+          <button
+            onClick={logout}
+            title="Disconnect Terminal Session"
+            className="p-1.5 rounded-md hover:bg-red-500/20 text-slate-500 hover:text-red-400 transition-colors"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
+        </div>
       </div>
     </aside>
   );
 }
+
+export default Sidebar;
